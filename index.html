@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Lumina Atelier — гараар урласан хөшиг, наалтууд. Орчин үеийн орон зайд зориулсан зөөлөн дулаан өнгө, тохируулж болох гэрэл болон захиалгат гоёмсог шийдэл."
+    />
+    <title>Lumina Atelier | Хөшиг &amp; Наалт</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json" id="jsonld-org">
+      {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "Lumina Atelier",
+        "url": ".",
+        "description": "Дээд зэрэглэлийн хөшиг, хуйлмал хөшиг, роман наалт болон захиалгат цонхны засал.",
+        "telephone": "+1-555-0142",
+        "email": "hello@luminaatelier.example",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "48 Mercer Street",
+          "addressLocality": "New York",
+          "addressRegion": "NY",
+          "postalCode": "10013",
+          "addressCountry": "US"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Үндсэн агуулга руу шилжих</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Lumina Atelier</a>
+
+        <nav class="nav-desktop" aria-label="Үндсэн цэс">
+          <a href="index.html" aria-current="page">Нүүр</a>
+          <a href="shop.html">Дэлгүүр</a>
+          <div class="has-dropdown">
+            <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="cat-menu">
+              Ангилал
+              <span class="caret" aria-hidden="true"></span>
+            </button>
+            <div id="cat-menu" class="dropdown-panel" role="menu">
+              <a href="shop.html?category=double-curtains" role="menuitem">Давхар хөшиг</a>
+              <a href="shop.html?category=wooden-blinds" role="menuitem">Модон наалт</a>
+              <a href="shop.html?category=venetian-blinds" role="menuitem">Хөндлөн төмөр наалт</a>
+              <a href="shop.html?category=motorized-curtains" role="menuitem">Ухаалаг (цахилгаан) хөшиг</a>
+              <a href="shop.html?category=roller-blinds" role="menuitem">Хуйлмал хөшиг</a>
+            </div>
+          </div>
+          <a href="about.html">Бидний тухай</a>
+          <a href="contact.html">Холбоо барих</a>
+        </nav>
+
+        <div class="header-actions">
+          <span id="user-chip" class="user-chip" hidden></span>
+          <button type="button" class="icon-btn" data-open-modal="search" aria-label="Бүтээгдэхүүн хайх">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
+            </svg>
+          </button>
+          <button type="button" class="icon-btn" data-open-modal="auth" aria-label="Хэрэглэгчийн бүртгэл">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </button>
+          <a class="icon-btn" href="wishlist.html" aria-label="Хүслийн жагсаалт">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+            <span class="badge-count" data-wishlist-count hidden>0</span>
+          </a>
+          <a class="icon-btn" href="cart.html" aria-label="Сагс">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6h15l-1.5 9h-12z" />
+              <circle cx="9" cy="20" r="1" />
+              <circle cx="18" cy="20" r="1" />
+            </svg>
+            <span class="badge-count" data-cart-count hidden>0</span>
+          </a>
+          <button
+            type="button"
+            class="icon-btn menu-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="Цэс нээх"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="mobile-nav" class="mobile-nav" hidden>
+      <nav aria-label="Гар утасны цэс">
+        <a href="index.html">Нүүр</a>
+        <a href="shop.html">Дэлгүүр</a>
+        <button type="button" data-mobile-submenu-toggle aria-expanded="false" aria-controls="mobile-cats">
+          Ангилал
+        </button>
+        <div id="mobile-cats" class="mobile-sub">
+          <a href="shop.html?category=double-curtains">Давхар хөшиг</a>
+          <a href="shop.html?category=wooden-blinds">Модон наалт</a>
+          <a href="shop.html?category=venetian-blinds">Хөндлөн төмөр наалт</a>
+          <a href="shop.html?category=motorized-curtains">Ухаалаг (цахилгаан) хөшиг</a>
+          <a href="shop.html?category=roller-blinds">Хуйлмал хөшиг</a>
+        </div>
+        <a href="about.html">Бидний тухай</a>
+        <a href="contact.html">Холбоо барих</a>
+        <a href="wishlist.html">Хүслийн жагсаалт</a>
+        <a href="cart.html">Сагс</a>
+      </nav>
+    </div>
+
+    <main id="main">
+      <section class="hero" aria-label="Онцлох">
+        <div class="hero__media">
+          <img
+            src="website/Gemini_Generated_Image_8093mr8093mr8093.png"
+            alt="Наран тусгалтай, намирсан хөшиг бүхий зочны өрөө"
+            width="1600"
+            height="1067"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="container">
+          <p class="tag" style="color: rgba(255,255,255,0.95); background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25)">
+            Амар амгалан орчинд зориулсан нарийн гэрэл тохируулга
+          </p>
+          <h1>Цонхоо тансаг зөөлөн уур амьсгалаар чимээрэй</h1>
+          <p class="lead">
+            Агаар нэвтрүүлдэг нимгэн хөшигнөөс эхлээд гэрэл огт нэвтрүүлдэггүй хуйлмал хөшиг хүртэл, Lumina Atelier таны цонхыг урт удаан эдэлгээтэй, уналт сайтай, цаг хугацаанд үл элэгдэх өнгө төрх бүхий материалаар гоёно.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn--primary btn--large" href="shop.html">Одоо худалдан авах</a>
+            <a class="btn btn--ghost btn--large" href="shop.html?category=double-curtains" style="border-color: rgba(255,255,255,0.5); color: #fff"
+              >Цуглуулгуудыг сонирхох</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container two-col">
+          <div>
+            <h2>Урлангийн нарийн мэдрэмж</h2>
+            <p class="lead">
+              Бид цонхны шийдлийг архитектурын бүтэцтэй атлаа зөөлөн мэдрэмж төрүүлдэг байх ёстой гэж үздэг. Энэхүү тэнцвэр нь байгалийн гэрлийг өглөөнөөс үдэш хүртэл таны орон зайд гайхалтай уусахад тусална.
+            </p>
+            <p>
+              Бүтээгдэхүүн бүрийг чанартай материал, хүүхдэд аюулгүй тоноглолын сонголт болон суурилуулах заавартайгаар санал болгодог тул таны гэр эмх цэгцтэй, тухтай мэдрэмжийг төрүүлнэ.
+            </p>
+            <a class="btn btn--primary" href="about.html">Бидний түүх</a>
+          </div>
+          <div class="card" style="box-shadow: var(--shadow-md); border: none">
+            <img
+              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80"
+              alt="Дулаан уур амьсгалтай өрөөний интерьер"
+              width="900"
+              height="1125"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--color-bg-warm)">
+        <div class="container">
+          <div class="section-head">
+            <h2>Онцлох бүтээгдэхүүнүүд</h2>
+            <p>Энэ улирлын хамгийн шилдэг сонголтууд — чанартай даавуу болон загварлаг тоноглол.</p>
+          </div>
+          <div id="featured-products" class="grid-4"></div>
+          <p class="text-center" style="margin-top: var(--space-lg)">
+            <a class="btn btn--ghost" href="shop.html">Бүх бүтээгдэхүүнийг үзэх</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Ангиллаар худалдан авах</h2>
+            <p>Гэр ахуйн болон студийн ямар ч орон зайд тохирох зөв шийдлийг олоорой.</p>
+          </div>
+          <div class="grid-3">
+            <a class="cat-tile" href="shop.html?category=double-curtains">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" />
+              <h3>Давхар хөшиг</h3>
+            </a>
+            <a class="cat-tile" href="shop.html?category=wooden-blinds">
+              <img src="https://images.unsplash.com/photo-1618219740975-d409fbccee94?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" />
+              <h3>Модон наалт</h3>
+            </a>
+            <a class="cat-tile" href="shop.html?category=venetian-blinds">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" />
+              <h3>Хөндлөн төмөр наалт</h3>
+            </a>
+            <a class="cat-tile" href="shop.html?category=motorized-curtains">
+              <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" />
+              <h3>Ухаалаг хөшиг</h3>
+            </a>
+            <a class="cat-tile" href="shop.html?category=roller-blinds">
+              <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80" alt="" loading="lazy" />
+              <h3>Хуйлмал хөшиг</h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--color-surface)">
+        <div class="container">
+          <div class="section-head">
+            <h2>Сэтгэгдэл</h2>
+            <p>Манай бүтээгдэхүүнийг өдөр тутамдаа ашиглаж буй худалдан авагчдын үг.</p>
+          </div>
+          <div class="grid-3">
+            <figure class="review-card">
+              <p class="stars" aria-label="5 одоос 5 од">★★★★★</p>
+              <blockquote>
+                <p>“Маалинган (linen) даавуун хөшиг манай зочны өрөөг бүхэлд нь өөрчилсөн — хувийн орон зайг алдагдуулахгүйгээр зөөлөн гэрэл нэвтрүүлдэг.”</p>
+              </blockquote>
+              <figcaption class="muted"><cite>Мая К.</cite> · Бруклин</figcaption>
+            </figure>
+            <figure class="review-card">
+              <p class="stars" aria-label="5 одоос 5 од">★★★★★</p>
+              <blockquote>
+                <p>“Хүүхдийн өрөөний гэрэл тусгаарлагч хуйлмал хөшиг яг таг таарсан. Хөдлөхдөө ямар ч чимээ гаргадаггүй, үнэхээр чимээгүй.”</p>
+              </blockquote>
+              <figcaption class="muted"><cite>Том В.</cite> · Остин</figcaption>
+            </figure>
+            <figure class="review-card">
+              <p class="stars" aria-label="5 одоос 5 од">★★★★★</p>
+              <blockquote>
+                <p>“Өөр хаанаас ч олдоогүй цонхны тусгай шийдлийг эндээс олсон — анхны зургаас эхлээд л маш нямбай ажилласан.”</p>
+              </blockquote>
+              <figcaption class="muted"><cite>Хелена П.</cite> · Чикаго</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section text-center" style="background: linear-gradient(180deg, var(--color-bg-warm), var(--color-bg))">
+        <div class="container" style="max-width: 640px">
+          <h2>Цонхоо чимэхэд бэлэн үү?</h2>
+          <p>Бэлэн байгаа бэлдэцүүдээс сонгох эсвэл өөрийн цонхонд зориулж тусгайлан зөвлөгөө аваарай.</p>
+          <div class="hero-actions" style="justify-content: center">
+            <a class="btn btn--primary btn--large" href="shop.html">Одоо худалдан авах</a>
+            <a class="btn btn--ghost btn--large" href="contact.html">Зөвлөгөө авах</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="index.html">Lumina Atelier</a>
+          <p>Цонхны тансаг шийдэл — хөшиг, наалт болон гэрэл зохицуулалт.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Дэлгүүр</h4>
+          <ul>
+            <li><a href="shop.html?category=double-curtains">Давхар хөшиг</a></li>
+            <li><a href="shop.html?category=wooden-blinds">Модон наалт</a></li>
+            <li><a href="shop.html?category=venetian-blinds">Хөндлөн төмөр наалт</a></li>
+            <li><a href="shop.html?category=motorized-curtains">Ухаалаг хөшиг</a></li>
+            <li><a href="shop.html?category=roller-blinds">Хуйлмал хөшиг</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компани</h4>
+          <ul>
+            <li><a href="about.html">Бидний тухай</a></li>
+            <li><a href="contact.html">Холбоо барих</a></li>
+            <li><a href="shop.html?category=motorized-curtains">Ухаалаг хөшиг</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Хаяг</h4>
+          <ul>
+            <li>48 Мерсер Стрит</li>
+            <li>Нью-Йорк, NY 10013</li>
+            <li><a href="tel:+15550142000">+1 (555) 014-2000</a></li>
+            <li><a href="mailto:hello@luminaatelier.example">hello@luminaatelier.example</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-year></span> Lumina Atelier. Портфолиод зориулсан жишиг вэбсайт.</p>
+      </div>
+    </footer>
+
+    <div class="modal-backdrop" data-modal-backdrop="search" aria-hidden="true"></div>
+    <div class="modal search-modal" data-modal="search" role="dialog" aria-modal="true" aria-labelledby="search-title" aria-hidden="true">
+      <div class="modal__head">
+        <h2 id="search-title">Хайх</h2>
+        <button type="button" class="modal-close" data-close-modal="search" aria-label="Хайлтыг хаах">×</button>
+      </div>
+      <label class="visually-hidden" for="search-input">Бүтээгдэхүүн хайх</label>
+      <input id="search-input" type="search" placeholder="Хөшиг, материал хайх…" autocomplete="off" />
+      <ul id="search-results" class="search-results"></ul>
+    </div>
+
+    <div class="modal-backdrop" data-modal-backdrop="auth" aria-hidden="true"></div>
+    <div class="modal" data-modal="auth" role="dialog" aria-modal="true" aria-labelledby="auth-title" aria-hidden="true">
+      <div class="modal__head">
+        <h2 id="auth-title">Таны бүртгэл</h2>
+        <button type="button" class="modal-close" data-close-modal="auth" aria-label="Бүртгэлийн цонхыг хаах">×</button>
+      </div>
+      <p class="muted" style="margin-top: 0">Демо нэвтрэх хэсэг — зөвхөн энэ төхөөрөмж дээр таны нэрийг хадгална.</p>
+      <div class="auth-tabs">
+        <button type="button" class="is-selected" data-auth-tab="login">Нэвтрэх</button>
+        <button type="button" data-auth-tab="signup">Бүртгүүрэх</button>
+      </div>
+      <form id="auth-form">
+        <input type="hidden" name="mode" value="login" />
+        <div class="form-group">
+          <label for="auth-email">Имэйл хаяг</label>
+          <input id="auth-email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="auth-name" id="auth-name-label">Харагдах нэр (заавал биш)</label>
+          <input id="auth-name" name="name" type="text" autocomplete="name" />
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%">Үргэлжлүүлэх</button>
+      </form>
+      <p class="text-center" style="margin-top: var(--space-md)">
+        <button type="button" class="btn btn--ghost" id="auth-logout" style="width: 100%">Гарах</button>
+      </p>
+    </div>
+
+    <script src="js/products-data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home-page.js"></script>
+  </body>
+</html>
