@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Lumina Atelier хөшиг болон наалтуудыг сонирхох — үнэ, төрөл, өнгө, материал, хэмжээгээр шүүх." />
+    <meta name="description" content="Lumina Atelier хөшиг болон наалтуудыг сонирхох." />
     <title>Дэлгүүр | Lumina Atelier</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,23 +18,13 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="index.html">Lumina Atelier</a>
+        <a class="logo" href="index.html">
+          <img src="website/logo.png" alt="Солонго Орд ХХК Logo" class="logo-img" />
+          <span class="logo-text">Солонго Орд ХХК</span>
+        </a>
         <nav class="nav-desktop" aria-label="Үндсэн цэс">
           <a href="index.html">Нүүр</a>
-          <a href="shop.html" aria-current="page">Дэлгүүр</a>
-          <div class="has-dropdown">
-            <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="cat-menu">
-              Ангилал
-              <span class="caret" aria-hidden="true"></span>
-            </button>
-            <div id="cat-menu" class="dropdown-panel" role="menu">
-              <a href="shop.html?category=double-curtains" role="menuitem">Давхар хөшиг</a>
-              <a href="shop.html?category=wooden-blinds" role="menuitem">Модон наалт</a>
-              <a href="shop.html?category=venetian-blinds" role="menuitem">Хөндлөн төмөр наалт</a>
-              <a href="shop.html?category=motorized-curtains" role="menuitem">Ухаалаг (цахилгаан) хөшиг</a>
-              <a href="shop.html?category=roller-blinds" role="menuitem">Хуйлмал хөшиг</a>
-            </div>
-          </div>
+          <a href="shop.html">Дэлгүүр</a>
           <a href="about.html">Бидний тухай</a>
           <a href="contact.html">Холбоо барих</a>
         </nav>
@@ -79,14 +69,6 @@
       <nav aria-label="Гар утасны цэс">
         <a href="index.html">Нүүр</a>
         <a href="shop.html">Дэлгүүр</a>
-        <button type="button" data-mobile-submenu-toggle aria-expanded="false" aria-controls="mobile-cats">Ангилал</button>
-        <div id="mobile-cats" class="mobile-sub">
-          <a href="shop.html?category=double-curtains">Давхар хөшиг</a>
-          <a href="shop.html?category=wooden-blinds">Модон наалт</a>
-          <a href="shop.html?category=venetian-blinds">Хөндлөн төмөр наалт</a>
-          <a href="shop.html?category=motorized-curtains">Ухаалаг (цахилгаан) хөшиг</a>
-          <a href="shop.html?category=roller-blinds">Хуйлмал хөшиг</a>
-        </div>
         <a href="about.html">Бидний тухай</a>
         <a href="contact.html">Холбоо барих</a>
         <a href="wishlist.html">Хүслийн жагсаалт</a>
@@ -96,114 +78,59 @@
 
     <main id="main" class="container section">
       <header style="margin-bottom: var(--space-lg)">
-        <h1>Дэлгүүр</h1>
+        <h1>Манай бүтээгдэхүүнүүд</h1>
         <p id="shop-search-hint" class="muted" style="margin: 0"></p>
       </header>
 
-      <div class="shop-toolbar">
+      <div class="shop-toolbar" style="margin-bottom: var(--space-lg)">
         <p id="shop-result-count" class="muted" style="margin: 0">0 бүтээгдэхүүн</p>
-        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm)">
-          <button
-            type="button"
-            class="btn btn--ghost filters-toggle"
-            id="filters-toggle"
-            aria-expanded="false"
-            aria-controls="filters-panel"
-          >
-            Шүүлтүүрүүд
-          </button>
+        <div>
           <label>
             <span class="visually-hidden">Эрэмбэлэх</span>
             <select id="shop-sort" aria-label="Бүтээгдэхүүн эрэмбэлэх">
               <option value="popularity">Эрэлтээрээ</option>
-              <option value="price-asc">Үнэ: Багаас их рүү</option>
-              <option value="price-desc">Үнэ: Ихээс бага руу</option>
               <option value="newest">Хамгийн сүүлийнх</option>
             </select>
           </label>
         </div>
       </div>
 
-      <div class="shop-layout">
-        <aside class="filters" id="filters-panel" aria-label="Шүүлтүүрүүд">
-          <h3>Шүүлтүүрүүд</h3>
-          <div class="filter-group">
-            <label for="filter-type">Төрөл</label>
-            <select id="filter-type">
-              <option value="">Бүх төрөл</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <span id="filter-price-label">Үнэ (USD)</span>
-            <div class="price-range" role="group" aria-labelledby="filter-price-label">
-              <div>
-                <label class="visually-hidden" for="filter-price-min">Доод үнэ</label>
-                <input id="filter-price-min" type="number" inputmode="decimal" min="0" step="1" placeholder="Доод" />
-              </div>
-              <div>
-                <label class="visually-hidden" for="filter-price-max">Дээд үнэ</label>
-                <input id="filter-price-max" type="number" inputmode="decimal" min="0" step="1" placeholder="Дээд" />
-              </div>
-            </div>
-          </div>
-          <div class="filter-group">
-            <label for="filter-material">Материал</label>
-            <select id="filter-material">
-              <option value="">Бүх материал</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <span id="color-filter-label">Өнгөний бүлэг</span>
-            <div id="filter-colors" class="chip-list" role="group" aria-labelledby="color-filter-label"></div>
-          </div>
-          <div class="filter-group">
-            <span id="size-filter-label">Хэмжээ</span>
-            <div id="filter-sizes" class="chip-list" role="group" aria-labelledby="size-filter-label"></div>
-          </div>
-          <button type="button" class="btn btn--ghost" id="filter-reset" style="width: 100%">Шүүлтүүр цуцлах</button>
-        </aside>
-        <div>
-          <div id="shop-grid" class="grid-3"></div>
-        </div>
-      </div>
+      <!-- Single grid container with no sidebar sidebar panel -->
+      <div id="shop-grid" class="grid-4"></div>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <a class="logo" href="index.html">Lumina Atelier</a>
-          <p>Цонхны тансаг шийдэл — хөшиг, наалт болон гэрэл зохицуулалт.</p>
+          <a class="logo" href="index.html">Солонго Орд ХХК</a>
+          <p>2003 оноос хойш Гэр, орон сууц болон албан тасалгааны бүх төрлийн цонхны хөшиг, төмөр хаалт, захиалгат суурилуулалт. Чанар, найдвартай үйлчилгээ, олон жилийн туршлага.</p>
         </div>
         <div class="footer-col">
-          <h4>Дэлгүүр</h4>
+          <h4>Цэс</h4>
           <ul>
-            <li><a href="shop.html?category=double-curtains">Давхар хөшиг</a></li>
-            <li><a href="shop.html?category=wooden-blinds">Модон наалт</a></li>
-            <li><a href="shop.html?category=venetian-blinds">Хөндлөн төмөр наалт</a></li>
-            <li><a href="shop.html?category=motorized-curtains">Ухаалаг хөшиг</a></li>
-            <li><a href="shop.html?category=roller-blinds">Хуйлмал хөшиг</a></li>
+            <li><a href="index.html">Нүүр</a></li>
+            <li><a href="shop.html">Дэлгүүр</a></li>
+            <li><a href="about.html">Бидний тухай</a></li>
+            <li><a href="contact.html">Холбоо барих</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Компани</h4>
+          <h4>Тусламж</h4>
           <ul>
-            <li><a href="about.html">Бидний тухай</a></li>
-            <li><a href="contact.html">Холбоо барих</a></li>
-            <li><a href="shop.html?category=motorized-curtains">Ухаалаг хөшиг</a></li>
+            <li><a href="wishlist.html">Хүслийн жагсаалт</a></li>
+            <li><a href="cart.html">Сагс</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Хаяг</h4>
           <ul>
-            <li>48 Мерсер Стрит</li>
-            <li>Нью-Йорк, NY 10013</li>
-            <li><a href="tel:+15550142000">+1 (555) 014-2000</a></li>
-            <li><a href="mailto:hello@luminaatelier.example">hello@luminaatelier.example</a></li>
+            <li><a href="tel:+97699184400">+976 99184400</a></li>
+            <li><a href="mailto:solongoord@gmail.com">solongoord@gmail.com</a></li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© <span data-year></span> Lumina Atelier. Портфолиод зориулсан жишиг вэбсайт.</p>
+        <p>© Since 2003 Solongo Ord LLC</p>
       </div>
     </footer>
 
