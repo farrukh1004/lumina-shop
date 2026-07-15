@@ -47,6 +47,32 @@
 *::after {
   box-sizing: border-box;
 }
+.header-inner {
+  padding-left: 24px;  /* Push the logo away from the very left edge of the browser window */
+  padding-right: 24px; /* Balance it on the right side as well */
+}
+/* Align the logo image and text side-by-side */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between the image and the text */
+  text-decoration: none;
+}
+
+/* Control the size of your logo image */
+.logo-img {
+  height: 40px; /* Adjust this height to fit your header design */
+  width: auto;  /* Keeps the aspect ratio perfect */
+  object-fit: contain;
+}
+
+/* Style the brand text if needed */
+.logo-text {
+  font-family: var(--font-display), "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text); /* Matches your website's primary text color */
+}
 
 html {
   scroll-behavior: smooth;
