@@ -34,6 +34,7 @@
   }
 
   function money(n) {
+    if (n === null || n === undefined) return "";
     return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(n);
   }
 
@@ -46,7 +47,17 @@
   if (descEl) descEl.textContent = product.description;
   if (metaSku) metaSku.textContent = `SKU: LA-${String(product.id).padStart(4, "0")}`;
 
-  if (product.consultationOnly) {
+  // Completely hide or handle prices if set to null
+  if (product.price === null) {
+    if (priceEl) {
+      priceEl.innerHTML = ""; // No price text at all
+      priceEl.style.display = "none";
+    }
+    if (consultBtn) {
+      consultBtn.hidden = false;
+      consultBtn.href = "contact.html?topic=custom";
+    }
+  } else if (product.consultationOnly) {
     if (priceEl) priceEl.innerHTML = `<span class="price">Consultation — custom quote</span>`;
     if (addBtn) addBtn.hidden = true;
     if (consultBtn) {
@@ -55,6 +66,7 @@
     }
   } else {
     if (priceEl) {
+      priceEl.style.display = "block";
       if (product.compareAt) {
         priceEl.innerHTML = `<span class="price price--sale">${money(product.price)}</span> <span class="price--was">${money(product.compareAt)}</span> <span class="tag" style="margin-left:0.5rem">Save</span>`;
       } else {
@@ -148,7 +160,9 @@
         </div>
         <div class="card__body">
           <h3 class="card__title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
-          <div class="price-row"><span class="price">${p.consultationOnly ? "Quote" : money(p.price)}</span></div>
+          <div class="price-row">
+            ${p.price === null ? "" : `<span class="price">${p.consultationOnly ? "Quote" : money(p.price)}</span>`}
+          </div>
         </div>
       </article>`
       )
@@ -186,30 +200,4 @@
     document.addEventListener("lumina:wishlist", syncWish);
     syncWish();
   }
-
-  const ld = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    image: product.images,
-    description: product.description,
-    sku: `LA-${String(product.id).padStart(4, "0")}`,
-    brand: { "@type": "Brand", name: "Lumina Atelier" },
-    offers: product.consultationOnly
-      ? undefined
-      : {
-          "@type": "Offer",
-          priceCurrency: "USD",
-          price: String(product.price),
-          availability: "https://schema.org/InStock",
-        },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: String(product.rating),
-      reviewCount: String(product.reviewCount),
-    },
-  };
-  if (product.consultationOnly) delete ld.offers;
-  const script = document.getElementById("jsonld-product");
-  if (script) script.textContent = JSON.stringify(ld);
 })();
