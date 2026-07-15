@@ -1,203 +1,233 @@
 /**
- * Product detail: gallery, variants, cart, wishlist, related
+ * Product catalog — curtains & blinds demo data
+ * Loaded before page scripts; exposes window.LUMINA_PRODUCTS
  */
 (function () {
-  const params = new URLSearchParams(window.location.search);
-  const id = Number(params.get("id"));
-  const product = window.LUMINA_getProductById ? window.LUMINA_getProductById(id) : null;
+  /**
+   * Local image path relative to the site root (lumina-atelier/).
+   * Put files in the website/ folder, then reference like: img("website/roller/photo.jpg")
+   * Use forward slashes. Spaces in filenames are OK.
+   */
+  const img = (relativePath) =>
+    relativePath
+      .replace(/\\/g, "/")
+      .split("/")
+      .map((part) => encodeURIComponent(part))
+      .join("/");
 
-  const titleEl = document.getElementById("pd-title");
-  const breadcrumb = document.getElementById("pd-breadcrumb");
-  const mainImg = document.getElementById("pd-main-img");
-  const thumbs = document.getElementById("pd-thumbs");
-  const priceEl = document.getElementById("pd-price");
-  const descEl = document.getElementById("pd-desc");
-  const colorsEl = document.getElementById("pd-colors");
-  const sizesEl = document.getElementById("pd-sizes");
-  const reviewsEl = document.getElementById("pd-reviews");
-  const relatedEl = document.getElementById("pd-related");
-  const addBtn = document.getElementById("pd-add");
-  const wishBtn = document.getElementById("pd-wishlist");
-  const consultBtn = document.getElementById("pd-consult");
-  const metaSku = document.getElementById("pd-sku");
+  window.LUMINA_CATEGORIES = [
+    { id: "double-curtains", label: "Давхар хөшиг" },
+    { id: "wooden-blinds", label: "Модон жалюзи" },
+    { id: "venetian-blinds", label: "Жалюзи" },
+    { id: "motorized-curtains", label: "Автомат хөшиг" },
+    { id: "roller-blinds", label: "Роллер хөшиг" },
+  ];
 
-  if (!product || !titleEl) {
-    if (titleEl) titleEl.textContent = "Product not found";
-    const mainImg = document.getElementById("pd-main-img");
-    if (mainImg) {
-      mainImg.removeAttribute("src");
-      mainImg.alt = "";
+  window.LUMINA_PRODUCTS = [
+    {
+      id: 1,
+      slug: "wood-blinds",
+      name: "Модон хөшиг / Wood Blind",
+      price: null,
+      compareAt: null,
+      category: "wood-blinds",
+      categoryLabel: "Модон хөшиг",
+      colors: ["Байгалийн модон", "Хар бор", "Цайвар бор"],
+      sizes: ["Захиалгаар"],
+      materials: ["Хулс", "Мод"],
+      colorTags: ["brown", "natural"],
+      images: [
+        img("website/wood.jpg"),
+        img("website/wooden/images (2).jpg"),
+       
+      ],
+      rating: 4.9,
+      reviewCount: 142,
+      popularity: 98,
+      addedAt: "2026-01-10",
+      isNew: true,
+      description:
+        "Модон хөшгийг хулсан болон халуун орны модоор гэсэн 2 төрлийн материалаар үйлдвэрлэдэг. Модон хөшиг нь өрөөний интерьертэй зохицож чадвал хамгийн тансаг хөшиг болж чадна.",
+      reviews: []
+    },
+    {
+      id: 2,
+      slug: "zebra-blinds",
+      name: "Давхар хөшиг / Zebra Blind",
+      price: null,
+      compareAt: null,
+      category: "zebra-blinds",
+      categoryLabel: "Давхар хөшиг",
+      colors: ["Цагаан", "Саарал", "Шаргал"],
+      sizes: ["Захиалгаар"],
+      materials: ["Тор", "Даавуу"],
+      colorTags: ["white", "gray", "neutral"],
+      images: [
+        img("website/zb.jpg"),
+        
+      ],
+      rating: 4.8,
+      reviewCount: 235,
+      popularity: 97,
+      addedAt: "2026-01-12",
+      isNew: false,
+      description:
+        "Давхар хөшиг нь утасан тор болон даавуун хослол юм. Агаар салхийг хүссэнээрээ нэвтрүүлэх онцлогтой (Нээх, хаах, ихэсгэх, багасгах). Гэрлийг 40-100% хүртэл бууруулах боломжтой. Шинэ загварын төгс шийдэл.",
+      reviews: []
+    },
+    {
+      id: 3,
+      slug: "vertical-blinds",
+      name: "Туузан хөшиг / Vertical Blind",
+      price: null,
+      compareAt: null,
+      category: "vertical-blinds",
+      categoryLabel: "Туузан хөшиг",
+      colors: ["Цагаан", "Тунгалаг саарал"],
+      sizes: ["Захиалгаар"],
+      materials: ["Синтетик даавуу"],
+      colorTags: ["white", "gray"],
+      images: [
+        img("website/vb.jpg"),
+      ],
+      rating: 4.6,
+      reviewCount: 98,
+      popularity: 84,
+      addedAt: "2025-11-15",
+      isNew: false,
+      description:
+        "Туузан хөшиг бол дээрээс доош унжих олон тооны туузнаас бүрдэх хөшиг юм. Материалын маш өргөн сонголттой. Хэрэв та томоохон хэмжээтэй цонхонд хөшиг сонгох гэж байгаа бол хамгийн зөв сонголт бол ТУУЗАН хөшиг.",
+      reviews: []
+    },
+    {
+      id: 4,
+      slug: "verman-blinds",
+      name: "Верман хөшиг / Verman Blind",
+      price: null,
+      compareAt: null,
+      category: "verman-blinds",
+      categoryLabel: "Верман хөшиг",
+      colors: ["Элсэн шаргал", "Зөөлөн цагаан"],
+      sizes: ["Захиалгаар"],
+      materials: ["Тор нарийн даавуу"],
+      colorTags: ["neutral", "white"],
+      images: [
+        img("website/ver.jpg"),
+      ],
+      rating: 4.7,
+      reviewCount: 64,
+      popularity: 89,
+      addedAt: "2026-02-05",
+      isNew: true,
+      description:
+        "Верман хөшиг нь давхар хөшигтэй ажиллах зарчим нь ижил. Хийц дизайны хувьд өвөрмөц, содон нь гайхалтай. Агаар салхийг хүссэнээрээ нэвтрүүлэх онцлогтой (Нээх, хаах, ихэсгэх, багасгах). Гэрлийг 40-75% хүртэл бууруулах боломжтой. Шинэ загварын төгс шийдэл.",
+      reviews: []
+    },
+    {
+      id: 5,
+      slug: "aluminum-venetian-blinds",
+      name: "Металл жалюзан хөшиг / Aluminum Venetian Blind",
+      price: null,
+      compareAt: null,
+      category: "aluminum-blinds",
+      categoryLabel: "Металл жалюзан хөшиг",
+      colors: ["Мөнгөлөг", "Металл саарал", "Цагаан"],
+      sizes: ["Захиалгаар"],
+      materials: ["Хөнгөн цагаан металл"],
+      colorTags: ["gray", "white"],
+      images: [
+        img("website/al.jpg"),
+      ],
+      rating: 4.5,
+      reviewCount: 112,
+      popularity: 79,
+      addedAt: "2025-10-20",
+      isNew: false,
+      description:
+        "Энэ төрлийн хөшигний үндсэн материал нь хөнгөн цагаан бөгөөд овор хэмжээ багатай, өвөрмөц загвартай. Жалюзан хөшиг нарны гэрлийн шууд тусгалыг хаах боловч орчныг хаалтгүй ажиллагаатай. Эдгээр хөшигний бүтэц бол хөндлөн байрлалтай олон тооны металл туузнаас бүрдэнэ. Жалюзан хөшигөөр өрөөнд орох гэрлийг тусгалыг хүссэнээр өөрчлөх бүрэн боломжтой. Материалын сонголтын хувьд чанар, өнгө үзэмж, дизайнаас хамааран маш өргөн сонголттой.",
+      reviews: []
+    },
+    {
+      id: 6,
+      slug: "shangrila-blinds",
+      name: "Шангри-Ла хөшиг / Shangrila Blind",
+      price: null,
+      compareAt: null,
+      category: "shangrila-blinds",
+      categoryLabel: "Шангри-Ла хөшиг",
+      colors: ["Тансаг цагаан", "Алтан шаргал"],
+      sizes: ["Захиалгаар"],
+      materials: ["Тюль", "Голын даавуун материал"],
+      colorTags: ["white", "neutral"],
+      images: [
+        img("website/sh.jpg"),
+      ],
+      rating: 4.9,
+      reviewCount: 81,
+      popularity: 93,
+      addedAt: "2026-02-10",
+      isNew: true,
+      description:
+        "Шангри-Ла хөшиг нь хоёр талдаа тюль бүхий тасалгаатай. Тюльн тасалгааны голын даавуун материал нь нээгдэж хаагдах зарчмаар ажилладаг. Хийц дизайны хувьд өвөрмөц содон. Агаар салхийг хүссэнээрээ нэвтрүүлэх онцлогтой (Нээх, хаах, ихэсгэх, багасгах). Гэрлийг 40-75% хүртэл бууруулах боломжтой. Шинэ загварын төгс шийдэл.",
+      reviews: []
+    },
+    {
+      id: 7,
+      slug: "roller-blinds",
+      name: "Хуйлдаг хөшиг / Roller Blind",
+      price: null,
+      compareAt: null,
+      category: "roller-blinds",
+      categoryLabel: "Хуйлдаг хөшиг",
+      colors: ["Цагаан", "Саарал", "Шаргал", "Хөх"],
+      sizes: ["Захиалгаар"],
+      materials: ["Битүү полиэстер даавуу"],
+      colorTags: ["white", "gray", "neutral"],
+      images: [
+        img("website/roll.jpg"),
+      ],
+      rating: 4.7,
+      reviewCount: 304,
+      popularity: 95,
+      addedAt: "2025-08-18",
+      isNew: false,
+      description:
+        "Хуйлдаг хөшиг бол дээрээс доош буух зарчмаар ажилладаг. Ажиллагааны 3 янзын сонголттой: Гараар дээш доош болгох (3 төрлийн тоног), Гараар доош болгож, автоматаар дээш хураах (3 төрлийн пүрш), Алсын удирдлагаар ажиллуулах бүрэн автомат. Хаана ч ямар ч өрөө тасалгааны тохижилттой зохицож чаддаг найдвартай хөнгөн гайхамшигт хөшиг юм. Материалын сонголт маш ихтэй тул үйлдвэрийн байранд ирж үзэх эсвэл дуудлага өгч каталогоос сонголт хийж болно.",
+      reviews: []
+    },
+    {
+      id: 8,
+      slug: "bamboo-blinds",
+      name: "Хулсан хөшиг / Bamboo Blind",
+      price: null,
+      compareAt: null,
+      category: "bamboo-blinds",
+      categoryLabel: "Хулсан хөшиг",
+      colors: ["Байгалийн хулсан өнгө"],
+      sizes: ["Захиалгаар"],
+      materials: ["Цэвэр хулс мод"],
+      colorTags: ["brown", "natural"],
+      images: [
+        img("website/bam.jpg"),
+      ],
+      rating: 4.6,
+      reviewCount: 52,
+      popularity: 77,
+      addedAt: "2025-09-01",
+      isNew: false,
+      description:
+        "Хулсан хөшигний мод нь цэвэр хувьд хөнгөн. Дээрээс доош буух зарчмаар ажилладаг. Цэвэр байгалийн бүтээгдэхүүн юм.",
+      reviews: []
     }
-    const addBtn = document.getElementById("pd-add");
-    if (addBtn) addBtn.hidden = true;
-    return;
-  }
 
-  function money(n) {
-    if (n === null || n === undefined) return "";
-    return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(n);
-  }
+  ];
 
-  document.title = `${product.name} | Lumina Atelier`;
+  window.LUMINA_getProductById = function (id) {
+    const n = Number(id);
+    return window.LUMINA_PRODUCTS.find((p) => p.id === n) || null;
+  };
 
-  titleEl.textContent = product.name;
-  if (breadcrumb) {
-    breadcrumb.innerHTML = `<a href="index.html">Home</a> · <a href="shop.html">Shop</a> · <span aria-current="page">${product.name}</span>`;
-  }
-  if (descEl) descEl.textContent = product.description;
-  if (metaSku) metaSku.textContent = `SKU: LA-${String(product.id).padStart(4, "0")}`;
-
-  // Completely hide or handle prices if set to null
-  if (product.price === null) {
-    if (priceEl) {
-      priceEl.innerHTML = ""; // No price text at all
-      priceEl.style.display = "none";
-    }
-    if (consultBtn) {
-      consultBtn.hidden = false;
-      consultBtn.href = "contact.html?topic=custom";
-    }
-  } else if (product.consultationOnly) {
-    if (priceEl) priceEl.innerHTML = `<span class="price">Consultation — custom quote</span>`;
-    if (addBtn) addBtn.hidden = true;
-    if (consultBtn) {
-      consultBtn.hidden = false;
-      consultBtn.href = "contact.html?topic=custom";
-    }
-  } else {
-    if (priceEl) {
-      priceEl.style.display = "block";
-      if (product.compareAt) {
-        priceEl.innerHTML = `<span class="price price--sale">${money(product.price)}</span> <span class="price--was">${money(product.compareAt)}</span> <span class="tag" style="margin-left:0.5rem">Save</span>`;
-      } else {
-        priceEl.innerHTML = `<span class="price">${money(product.price)}</span>`;
-      }
-    }
-    if (consultBtn) consultBtn.hidden = true;
-  }
-
-  let selectedColor = product.colors[0] || "";
-  let selectedSize = product.sizes[0] || "";
-
-  function setMain(src, alt) {
-    if (mainImg) {
-      mainImg.src = src;
-      mainImg.alt = alt || product.name;
-    }
-  }
-
-  if (product.images.length) setMain(product.images[0], product.name);
-
-  if (thumbs) {
-    thumbs.innerHTML = "";
-    product.images.forEach((src, i) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "is-active";
-      if (i > 0) b.classList.remove("is-active");
-      b.innerHTML = `<img src="${src}" alt="" width="120" height="120" loading="lazy" />`;
-      b.addEventListener("click", () => {
-        thumbs.querySelectorAll("button").forEach((x) => x.classList.remove("is-active"));
-        b.classList.add("is-active");
-        setMain(src, `${product.name} view ${i + 1}`);
-      });
-      thumbs.appendChild(b);
-    });
-  }
-
-  function renderOptions(container, values, key, selected, onPick) {
-    if (!container) return;
-    container.innerHTML = "";
-    values.forEach((v) => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "option-btn" + (v === selected ? " is-selected" : "");
-      b.textContent = v;
-      b.addEventListener("click", () => {
-        selected = v;
-        onPick(v);
-        container.querySelectorAll("button").forEach((x) => x.classList.remove("is-selected"));
-        b.classList.add("is-selected");
-      });
-      container.appendChild(b);
-    });
-  }
-
-  renderOptions(colorsEl, product.colors, "color", selectedColor, (v) => {
-    selectedColor = v;
-  });
-  renderOptions(sizesEl, product.sizes, "size", selectedSize, (v) => {
-    selectedSize = v;
-  });
-
-  if (reviewsEl) {
-    if (!product.reviews.length) {
-      reviewsEl.innerHTML = "<p class=\"muted\">No written reviews yet — be the first after purchase.</p>";
-    } else {
-      reviewsEl.innerHTML = product.reviews
-        .map(
-          (r) => `
-        <article class="review-card" style="margin-bottom:1rem">
-          <p class="stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</p>
-          <p>${r.text}</p>
-          <p class="muted"><cite>${r.author}</cite> · ${r.date}</p>
-        </article>`
-        )
-        .join("");
-    }
-  }
-
-  if (relatedEl) {
-    const related = window.LUMINA_PRODUCTS.filter(
-      (p) => p.category === product.category && p.id !== product.id
-    ).slice(0, 3);
-    relatedEl.innerHTML = related
-      .map(
-        (p) => `
-      <article class="card">
-        <div class="card__image">
-          <a href="product.html?id=${p.id}"><img src="${p.images[0]}" alt="" loading="lazy" width="300" height="375" /></a>
-        </div>
-        <div class="card__body">
-          <h3 class="card__title"><a href="product.html?id=${p.id}">${p.name}</a></h3>
-          <div class="price-row">
-            ${p.price === null ? "" : `<span class="price">${p.consultationOnly ? "Quote" : money(p.price)}</span>`}
-          </div>
-        </div>
-      </article>`
-      )
-      .join("");
-  }
-
-  if (addBtn) {
-    addBtn.addEventListener("click", () => {
-      if (product.consultationOnly) return;
-      window.LuminaStore.addToCart(product.id, {
-        color: selectedColor,
-        size: selectedSize,
-        qty: 1,
-      });
-      addBtn.textContent = "Added to cart";
-      setTimeout(() => {
-        addBtn.textContent = "Add to cart";
-      }, 1600);
-    });
-  }
-
-  function syncWish() {
-    const on = window.LuminaStore.isInWishlist(product.id);
-    if (wishBtn) {
-      wishBtn.setAttribute("aria-pressed", on ? "true" : "false");
-      wishBtn.textContent = on ? "Saved to wishlist" : "Add to wishlist";
-    }
-  }
-
-  if (wishBtn) {
-    wishBtn.addEventListener("click", () => {
-      window.LuminaStore.toggleWishlist(product.id);
-      syncWish();
-    });
-    document.addEventListener("lumina:wishlist", syncWish);
-    syncWish();
-  }
+  window.LUMINA_getProductBySlug = function (slug) {
+    return window.LUMINA_PRODUCTS.find((p) => p.slug === slug) || null;
+  };
 })();
