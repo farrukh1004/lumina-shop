@@ -40,28 +40,16 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="index.html">Lumina Atelier</a>
-
+        <a class="logo" href="index.html">
+          <img src="website/logo.png" alt="Солонго Орд ХХК Logo" class="logo-img" />
+          <span class="logo-text">Солонго Орд ХХК</span>
+        </a>
         <nav class="nav-desktop" aria-label="Үндсэн цэс">
-          <a href="index.html" aria-current="page">Нүүр</a>
+          <a href="index.html">Нүүр</a>
           <a href="shop.html">Дэлгүүр</a>
-          <div class="has-dropdown">
-            <button type="button" aria-expanded="false" aria-haspopup="true" aria-controls="cat-menu">
-              Ангилал
-              <span class="caret" aria-hidden="true"></span>
-            </button>
-            <div id="cat-menu" class="dropdown-panel" role="menu">
-              <a href="shop.html?category=double-curtains" role="menuitem">Давхар хөшиг</a>
-              <a href="shop.html?category=wooden-blinds" role="menuitem">Модон наалт</a>
-              <a href="shop.html?category=venetian-blinds" role="menuitem">Хөндлөн төмөр наалт</a>
-              <a href="shop.html?category=motorized-curtains" role="menuitem">Ухаалаг (цахилгаан) хөшиг</a>
-              <a href="shop.html?category=roller-blinds" role="menuitem">Хуйлмал хөшиг</a>
-            </div>
-          </div>
           <a href="about.html">Бидний тухай</a>
           <a href="contact.html">Холбоо барих</a>
         </nav>
-
         <div class="header-actions">
           <span id="user-chip" class="user-chip" hidden></span>
           <button type="button" class="icon-btn" data-open-modal="search" aria-label="Бүтээгдэхүүн хайх">
@@ -90,13 +78,7 @@
             </svg>
             <span class="badge-count" data-cart-count hidden>0</span>
           </a>
-          <button
-            type="button"
-            class="icon-btn menu-toggle"
-            aria-expanded="false"
-            aria-controls="mobile-nav"
-            aria-label="Цэс нээх"
-          >
+          <button type="button" class="icon-btn menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Цэс нээх">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -109,16 +91,6 @@
       <nav aria-label="Гар утасны цэс">
         <a href="index.html">Нүүр</a>
         <a href="shop.html">Дэлгүүр</a>
-        <button type="button" data-mobile-submenu-toggle aria-expanded="false" aria-controls="mobile-cats">
-          Ангилал
-        </button>
-        <div id="mobile-cats" class="mobile-sub">
-          <a href="shop.html?category=double-curtains">Давхар хөшиг</a>
-          <a href="shop.html?category=wooden-blinds">Модон наалт</a>
-          <a href="shop.html?category=venetian-blinds">Хөндлөн төмөр наалт</a>
-          <a href="shop.html?category=motorized-curtains">Ухаалаг (цахилгаан) хөшиг</a>
-          <a href="shop.html?category=roller-blinds">Хуйлмал хөшиг</a>
-        </div>
         <a href="about.html">Бидний тухай</a>
         <a href="contact.html">Холбоо барих</a>
         <a href="wishlist.html">Хүслийн жагсаалт</a>
@@ -144,7 +116,7 @@
           </p>
           <h1>Цонхоо тансаг зөөлөн уур амьсгалаар чимээрэй</h1>
           <p class="lead">
-            Агаар нэвтрүүлдэг нимгэн хөшигнөөс эхлээд гэрэл огт нэвтрүүлдэггүй хуйлмал хөшиг хүртэл, Lumina Atelier таны цонхыг урт удаан эдэлгээтэй, уналт сайтай, цаг хугацаанд үл элэгдэх өнгө төрх бүхий материалаар гоёно.
+            Агаар нэвтрүүлдэг нимгэн хөшигнөөс эхлээд гэрэл огт нэвтрүүлдэггүй хуйлмал хөшиг хүртэл, Солонго Орд ХХК таны цонхыг урт удаан эдэлгээтэй, уналт сайтай, цаг хугацаанд үл элэгдэх өнгө төрх бүхий материалаар гоёно.
           </p>
           <div class="hero-actions">
             <a class="btn btn--primary btn--large" href="shop.html">Одоо худалдан авах</a>
@@ -159,9 +131,9 @@
         <div class="container two-col">
           <div>
             <h2>Урлангийн нарийн мэдрэмж</h2>
-            <p class="lead">
+            <!-- <p class="lead">
               Бид цонхны шийдлийг архитектурын бүтэцтэй атлаа зөөлөн мэдрэмж төрүүлдэг байх ёстой гэж үздэг. Энэхүү тэнцвэр нь байгалийн гэрлийг өглөөнөөс үдэш хүртэл таны орон зайд гайхалтай уусахад тусална.
-            </p>
+            </p> -->
             <p>
               Бүтээгдэхүүн бүрийг чанартай материал, хүүхдэд аюулгүй тоноглолын сонголт болон суурилуулах заавартайгаар санал болгодог тул таны гэр эмх цэгцтэй, тухтай мэдрэмжийг төрүүлнэ.
             </p>
@@ -169,7 +141,7 @@
           </div>
           <div class="card" style="box-shadow: var(--shadow-md); border: none">
             <img
-              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80"
+              src="website/home.jpg"
               alt="Дулаан уур амьсгалтай өрөөний интерьер"
               width="900"
               height="1125"
@@ -192,7 +164,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <!-- <section class="section">
         <div class="container">
           <div class="section-head">
             <h2>Ангиллаар худалдан авах</h2>
@@ -221,7 +193,7 @@
             </a>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section class="section" style="background: var(--color-surface)">
         <div class="container">
@@ -235,21 +207,21 @@
               <blockquote>
                 <p>“Маалинган (linen) даавуун хөшиг манай зочны өрөөг бүхэлд нь өөрчилсөн — хувийн орон зайг алдагдуулахгүйгээр зөөлөн гэрэл нэвтрүүлдэг.”</p>
               </blockquote>
-              <figcaption class="muted"><cite>Мая К.</cite> · Бруклин</figcaption>
+              <figcaption class="muted"><cite>Тэмүүлэн К.</cite> · Улаанбаатар</figcaption>
             </figure>
             <figure class="review-card">
               <p class="stars" aria-label="5 одоос 5 од">★★★★★</p>
               <blockquote>
                 <p>“Хүүхдийн өрөөний гэрэл тусгаарлагч хуйлмал хөшиг яг таг таарсан. Хөдлөхдөө ямар ч чимээ гаргадаггүй, үнэхээр чимээгүй.”</p>
               </blockquote>
-              <figcaption class="muted"><cite>Том В.</cite> · Остин</figcaption>
+              <figcaption class="muted"><cite>Хулан В.</cite> · Эрдэнэт</figcaption>
             </figure>
             <figure class="review-card">
               <p class="stars" aria-label="5 одоос 5 од">★★★★★</p>
               <blockquote>
                 <p>“Өөр хаанаас ч олдоогүй цонхны тусгай шийдлийг эндээс олсон — анхны зургаас эхлээд л маш нямбай ажилласан.”</p>
               </blockquote>
-              <figcaption class="muted"><cite>Хелена П.</cite> · Чикаго</figcaption>
+              <figcaption class="muted"><cite>Билгүүн П.</cite> · Дархан</figcaption>
             </figure>
           </div>
         </div>
@@ -267,42 +239,38 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+   <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <a class="logo" href="index.html">Lumina Atelier</a>
-          <p>Цонхны тансаг шийдэл — хөшиг, наалт болон гэрэл зохицуулалт.</p>
+          <a class="logo" href="index.html">Солонго Орд ХХК</a>
+          <p>2003 оноос хойш Гэр, орон сууц болон албан тасалгааны бүх төрлийн цонхны хөшиг, төмөр хаалт, захиалгат суурилуулалт. Чанар, найдвартай үйлчилгээ, олон жилийн туршлага.</p>
         </div>
         <div class="footer-col">
-          <h4>Дэлгүүр</h4>
+          <h4>Цэс</h4>
           <ul>
-            <li><a href="shop.html?category=double-curtains">Давхар хөшиг</a></li>
-            <li><a href="shop.html?category=wooden-blinds">Модон наалт</a></li>
-            <li><a href="shop.html?category=venetian-blinds">Хөндлөн төмөр наалт</a></li>
-            <li><a href="shop.html?category=motorized-curtains">Ухаалаг хөшиг</a></li>
-            <li><a href="shop.html?category=roller-blinds">Хуйлмал хөшиг</a></li>
+            <li><a href="index.html">Нүүр</a></li>
+            <li><a href="shop.html">Дэлгүүр</a></li>
+            <li><a href="about.html">Бидний тухай</a></li>
+            <li><a href="contact.html">Холбоо барих</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Компани</h4>
+          <h4>Тусламж</h4>
           <ul>
-            <li><a href="about.html">Бидний тухай</a></li>
-            <li><a href="contact.html">Холбоо барих</a></li>
-            <li><a href="shop.html?category=motorized-curtains">Ухаалаг хөшиг</a></li>
+            <li><a href="wishlist.html">Хүслийн жагсаалт</a></li>
+            <li><a href="cart.html">Сагс</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Хаяг</h4>
           <ul>
-            <li>48 Мерсер Стрит</li>
-            <li>Нью-Йорк, NY 10013</li>
-            <li><a href="tel:+15550142000">+1 (555) 014-2000</a></li>
-            <li><a href="mailto:hello@luminaatelier.example">hello@luminaatelier.example</a></li>
+            <li><a href="tel:+97699184400">+976 99184400</a></li>
+            <li><a href="mailto:solongoord@gmail.com">solongoord@gmail.com</a></li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© <span data-year></span> Lumina Atelier. Портфолиод зориулсан жишиг вэбсайт.</p>
+        <p>© Since 2003 Solongo Ord LLC</p>
       </div>
     </footer>
 
