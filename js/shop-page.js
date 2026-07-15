@@ -22,6 +22,7 @@
   };
 
   function money(n) {
+    if (n === null || n === undefined) return "";
     return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(n);
   }
 
@@ -131,12 +132,16 @@
 
   function cardHtml(p) {
     const inWish = window.LuminaStore.isInWishlist(p.id);
-    const price =
-      p.consultationOnly || p.price === 0
+    
+    // Completely omit pricing block if the price is null
+    const price = p.price === null 
+      ? "" 
+      : p.consultationOnly || p.price === 0
         ? `<span class="price">Quote</span>`
         : p.compareAt
           ? `<span class="price price--sale">${money(p.price)}</span><span class="price--was">${money(p.compareAt)}</span>`
           : `<span class="price">${money(p.price)}</span>`;
+
     return `
       <article class="card" data-product-id="${p.id}">
         <div class="card__image">
