@@ -56,8 +56,8 @@
       }
 
       try {
-        // Send to Netlify Serverless Function endpoint
-        const response = await fetch("//.netlify/functions/send-telegram", {
+        // FIXED: Changed "//.netlify/functions/send-telegram" to "/.netlify/functions/send-telegram"
+        const response = await fetch("/.netlify/functions/send-telegram", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
