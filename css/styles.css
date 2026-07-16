@@ -32,14 +32,36 @@
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+@media (max-width: 768px) {
+
+    .header-inner{
+        padding: 0 12px;
+    }
+
+    .logo-text{
+        font-size:0.9rem;
+        max-width:70px;
+        line-height:1.1;
+    }
+
+    .logo-img{
+        height:32px;
+    }
+
+    .header-actions{
+        gap:4px;
+    }
+
+    .icon-btn{
+        width:38px;
+        height:38px;
+    }
+
+    /* Hide user and wishlist on phones */
+    .header-actions > :nth-child(3),
+    .header-actions > :nth-child(2){
+        display:none;
+    }
 }
 
 *,
