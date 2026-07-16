@@ -39,7 +39,7 @@
       images: [
         img("website/wood.jpg"),
         img("website/wooden/images (2).jpg"),
-       
+        img("website/np/wood.jpg"),
       ],
       rating: 4.9,
       reviewCount: 142,
@@ -64,6 +64,8 @@
       colorTags: ["white", "gray", "neutral"],
       images: [
         img("website/zb.jpg"),
+        img("website/np/zb.jpg"),
+        img("website/np/zb1.jpg")
         
       ],
       rating: 4.8,
@@ -89,6 +91,9 @@
       colorTags: ["white", "gray"],
       images: [
         img("website/vb.jpg"),
+        img("website/np/vb.jpg"),
+        img("website/np/vb1.jpg"),
+        img("website/np/vb2.jpg")
       ],
       rating: 4.6,
       reviewCount: 98,
@@ -113,6 +118,9 @@
       colorTags: ["neutral", "white"],
       images: [
         img("website/ver.jpg"),
+        img("website/np/ver.jpg"),
+        img("website/np/ver1.jpg"),
+        img("website/np/ver2.jpg")
       ],
       rating: 4.7,
       reviewCount: 64,
@@ -137,6 +145,8 @@
       colorTags: ["gray", "white"],
       images: [
         img("website/al.jpg"),
+        img("website/np/j.jpg"),
+        img("website/np/j1.jpg")
       ],
       rating: 4.5,
       reviewCount: 112,
@@ -161,6 +171,8 @@
       colorTags: ["white", "neutral"],
       images: [
         img("website/sh.jpg"),
+        img("website/np/sh.jpg"),
+        img("website/np/sh1.jpg"),
       ],
       rating: 4.9,
       reviewCount: 81,
@@ -185,6 +197,8 @@
       colorTags: ["white", "gray", "neutral"],
       images: [
         img("website/roll.jpg"),
+        img("website/np/roller.jpg"),
+        img("website/np/roller.jpg"),
       ],
       rating: 4.7,
       reviewCount: 304,
@@ -209,6 +223,7 @@
       colorTags: ["brown", "natural"],
       images: [
         img("website/bam.jpg"),
+        img("website/np/bam.jpg"),
       ],
       rating: 4.6,
       reviewCount: 52,
