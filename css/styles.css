@@ -32,36 +32,14 @@
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (max-width: 768px) {
-
-    .header-inner{
-        padding: 0 12px;
-    }
-
-    .logo-text{
-        font-size:0.9rem;
-        max-width:70px;
-        line-height:1.1;
-    }
-
-    .logo-img{
-        height:32px;
-    }
-
-    .header-actions{
-        gap:4px;
-    }
-
-    .icon-btn{
-        width:38px;
-        height:38px;
-    }
-
-    /* Hide user and wishlist on phones */
-    .header-actions > :nth-child(3),
-    .header-actions > :nth-child(2){
-        display:none;
-    }
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 *,
@@ -99,62 +77,55 @@
 
 /* 5. Hide non-essential icons and style the menu button on mobile */
 @media (max-width: 768px) {
-  /* Make the text small enough to fit next to the logo on one line */
+
+  .header-inner {
+    padding: 0 12px;
+  }
+
+  .logo {
+    gap: 6px;
+  }
+
+  .logo-img {
+    height: 32px;
+  }
+
   .logo-text {
     font-size: 0.85rem;
+    line-height: 1.1;
     font-weight: 600;
+    max-width: 70px;
+    white-space: normal;
   }
 
-  /* HIDE these icons on mobile to save space so it looks like a normal website */
-  .header-icons .icon-heart, 
-  .header-icons .icon-user,
-  .right-nav .heart-link,
-  .right-nav .profile-link { 
-    display: none !important; 
+  .header-actions {
+    gap: 4px;
   }
 
-  /* ENSURE the menu/hamburger button is visible and properly styled */
-  .menu-btn, .hamburger-menu {
-    display: block !important;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
+  .icon-btn {
+    width: 38px;
+    height: 38px;
   }
-}
-.header-inner {
-  padding-left: 24px;  /* Push the logo away from the very left edge of the browser window */
-  padding-right: 24px; /* Balance it on the right side as well */
-}
-/* Align the logo image and text side-by-side */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Slightly smaller gap on mobile to save horizontal space */
-  text-decoration: none;
-  flex-shrink: 0;
-}
 
-/* 2. Style adjustments specifically for mobile screens (under 768px) */
-@media (max-width: 768px) {
-  .logo-text {
-    font-size: 0.85rem;  /* Significantly smaller font to fit mobile screens */
-    line-height: 1.1;     /* Tighter line height so wrapped lines sit close together */
-    font-weight: 600;     /* Slightly bolder so it remains highly readable at a smaller size */
-    max-width: 80px;      /* Restricts the width so it wraps neatly instead of pushing icons */
-    white-space: normal;  /* Allows the text to break into clean, compact lines */
+  /* Hide Search */
+  .header-actions button[data-open-modal="search"] {
+    display: none;
   }
-  
-  .logo-img {
-    height: 32px;         /* Scales down the logo icon slightly to match the smaller text */
-  }
-}
 
-/* Control the size of your logo image */
-.logo-img {
-  height: 40px; /* Adjust this height to fit your header design */
-  width: auto;  /* Keeps the aspect ratio perfect */
-  object-fit: contain;
+  /* Hide User */
+  .header-actions button[data-open-modal="auth"] {
+    display: none;
+  }
+
+  /* Hide Wishlist */
+  .header-actions a[href="wishlist.html"] {
+    display: none;
+  }
+
+  /* Keep Cart + Menu visible */
+  .menu-toggle {
+    display: inline-flex;
+  }
 }
 
 /* Style the brand text if needed */
