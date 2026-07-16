@@ -72,6 +72,56 @@ header, .header-container {
   width: 100%;
   box-sizing: border-box;
 }
+/* ==========================================================================
+   HEADER MOBILE RESPONSIVENESS FIX
+   ========================================================================== */
+
+/* 1. Prevent the page from shifting or scrolling horizontally */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2. Adjustments specifically for mobile screens */
+@media (max-width: 960px) {
+  /* Make the logo container compact */
+  .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  /* Make the text small enough to wrap and fit on one line next to the logo */
+  .logo-text {
+    font-size: 0.8rem !important;
+    line-height: 1.1 !important;
+    font-weight: 600 !important;
+    max-width: 75px !important;
+    white-space: normal !important;
+  }
+  
+  .logo-img {
+    height: 28px !important;
+    width: auto !important;
+  }
+
+  /* Reduce spacing between the remaining header elements */
+  .header-actions {
+    gap: 4px !important;
+  }
+
+  /* Hide the Profile and Wishlist buttons on mobile to free up space */
+  .header-actions button[data-open-modal="auth"],
+  .header-actions a[href="wishlist.html"] {
+    display: none !important;
+  }
+
+  /* Ensure remaining icon buttons look consistently sized */
+  .icon-btn {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
 
 /* 3. Keep the logo side compact and prevent wrapping */
 .logo {
