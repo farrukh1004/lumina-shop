@@ -1,15 +1,11 @@
 /**
- * Contact form handler for Netlify + Telegram Bot
+ * Contact form handler - Sends data to Netlify Serverless Function
  */
 (function () {
   const form = document.getElementById("contact-form");
   const topic = document.getElementById("contact-topic");
   const params = new URLSearchParams(window.location.search);
   const t = params.get("topic");
-
-  // --- TELEGRAM CONFIGURATION ---
-  const TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"; 
-  const TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE";
 
   if (topic && t === "custom") {
     topic.value = "custom";
@@ -43,7 +39,7 @@
         if (status) {
           status.hidden = false;
           status.style.color = "#c5221f";
-          status.textContent = "Мэдээллийг бүрэн бөглөно үү.";
+          status.textContent = "Мэдээллийг бүрэн бөглөнө үү.";
         }
         return;
       }
@@ -59,41 +55,22 @@
         status.hidden = true;
       }
 
-      // 1. Submit to Netlify Forms first
-      const formData = new FormData(form);
-      formData.append("form-name", "contact");
-
       try {
-        await fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData).toString(),
-        });
-
-        // 2. Submit to Telegram
-        const telegramMessage = `
-📩 *Шинэ зурвас ирлээ!* (Солонго Орд ХХК)
-────────────────────
-👤 *Нэр:* ${name}
-📧 *Имэйл:* ${email}
-🏷️ *Сэдэв:* ${topicMongolian}
-
-📝 *Зурвас:*
-${message}
-────────────────────
-        `;
-
-        const telegramResponse = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        // Send to Netlify Serverless Function endpoint
+        const response = await fetch("//.netlify/functions/send-telegram", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: telegramMessage,
-            parse_mode: "Markdown",
-          }),
+            name: name,
+            email: email,
+            topic: topicMongolian,
+            message: message
+          })
         });
 
-        if (telegramResponse.ok) {
+        const result = await response.json();
+
+        if (response.ok && result.success) {
           if (status) {
             status.hidden = false;
             status.style.color = "#137333";
@@ -101,10 +78,10 @@ ${message}
           }
           form.reset();
         } else {
-          throw new Error("Telegram error");
+          throw new Error(result.error || "Server error");
         }
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Error sending message:", error);
         if (status) {
           status.hidden = false;
           status.style.color = "#c5221f";
