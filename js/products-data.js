@@ -198,7 +198,7 @@
       images: [
         img("website/roll.jpg"),
         img("website/np/roller.jpg"),
-        img("website/np/roller.jpg"),
+        img("website/np/roller1.jpg"),
       ],
       rating: 4.7,
       reviewCount: 304,
