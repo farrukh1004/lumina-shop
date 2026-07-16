@@ -47,6 +47,85 @@
 *::after {
   box-sizing: border-box;
 }
+/* ==========================================================================
+   HEADER MOBILE FIX (NORMAL WEBSITE LAYOUT)
+   ========================================================================== */
+
+/* 1. Ensure the header always has a solid background and behaves nicely */
+header, .header-container {
+  position: fixed; /* or relative/absolute depending on your layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff !important; /* Forces solid white background */
+  z-index: 9999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Adds a clean, subtle separation line */
+  box-sizing: border-box;
+}
+
+/* 2. Main structure to keep elements spaced to opposite ends */
+.header-wrapper, .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 3. Keep the logo side compact and prevent wrapping */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 32px; /* Set a standard mobile size */
+  width: auto;
+}
+
+.logo-text {
+  font-family: inherit;
+  color: #000000;
+  margin: 0;
+  white-space: nowrap; /* Forces the text to stay on ONE line */
+}
+
+/* 4. Action icons container on the right side */
+.header-icons, .right-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Clean spacing between icons */
+}
+
+/* 5. Hide non-essential icons and style the menu button on mobile */
+@media (max-width: 768px) {
+  /* Make the text small enough to fit next to the logo on one line */
+  .logo-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* HIDE these icons on mobile to save space so it looks like a normal website */
+  .header-icons .icon-heart, 
+  .header-icons .icon-user,
+  .right-nav .heart-link,
+  .right-nav .profile-link { 
+    display: none !important; 
+  }
+
+  /* ENSURE the menu/hamburger button is visible and properly styled */
+  .menu-btn, .hamburger-menu {
+    display: block !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+}
 .header-inner {
   padding-left: 24px;  /* Push the logo away from the very left edge of the browser window */
   padding-right: 24px; /* Balance it on the right side as well */
