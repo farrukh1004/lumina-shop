@@ -177,9 +177,9 @@
         size: selectedSize,
         qty: 1,
       });
-      addBtn.textContent = "Added to cart";
+      addBtn.textContent = "Сагсанд нэмэгдлээ"; // "Added to cart"
       setTimeout(() => {
-        addBtn.textContent = "Add to cart";
+        addBtn.textContent = "Сагсанд хийх";   // "Add to cart"
       }, 1600);
     });
   }
@@ -188,7 +188,7 @@
     const on = window.LuminaStore.isInWishlist(product.id);
     if (wishBtn) {
       wishBtn.setAttribute("aria-pressed", on ? "true" : "false");
-      wishBtn.textContent = on ? "Saved to wishlist" : "Add to wishlist";
+      wishBtn.textContent = on ? "Хүслийн жагсаалтад байгаа" : "Хүслийн жагсаалтад нэмэх";
     }
   }
 
