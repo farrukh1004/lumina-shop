@@ -55,8 +55,24 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px; /* Space between the image and the text */
+  gap: 8px; /* Slightly smaller gap on mobile to save horizontal space */
   text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* 2. Style adjustments specifically for mobile screens (under 768px) */
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 0.85rem;  /* Significantly smaller font to fit mobile screens */
+    line-height: 1.1;     /* Tighter line height so wrapped lines sit close together */
+    font-weight: 600;     /* Slightly bolder so it remains highly readable at a smaller size */
+    max-width: 80px;      /* Restricts the width so it wraps neatly instead of pushing icons */
+    white-space: normal;  /* Allows the text to break into clean, compact lines */
+  }
+  
+  .logo-img {
+    height: 32px;         /* Scales down the logo icon slightly to match the smaller text */
+  }
 }
 
 /* Control the size of your logo image */
